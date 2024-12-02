@@ -4,10 +4,9 @@ import { optionsStyleTransform } from '../web.functions';
 import { Line } from '../web.model';
 
 @Component({
-  selector: 'lasr-web-value-difference, g[webDifferences]',
-  standalone: true,
-  imports: [],
-  template: `
+    selector: 'lasr-web-value-difference, g[webDifferences]',
+    imports: [],
+    template: `
         @for (line of webDifferences(); track $index) {
         <svg:line 
         [attr.x1]="line.start.x" [attr.y1]="line.start.y" 
@@ -18,7 +17,7 @@ import { Line } from '../web.model';
         />
     }
   `,
-  styles: []
+    styles: []
 })
 export class WebValueDifferenceComponent {
     options = input(DEFAULT_STYLE_OPTIONS,{transform:optionsStyleTransform})

@@ -5,11 +5,10 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { debounce, debounceTime } from 'rxjs';
 
 @Component({
-  selector: 'lasr-input-form',
-  standalone: true,
-  imports: [ReactiveFormsModule],
-  templateUrl: './input-form.component.html',
-  styleUrl: './input-form.component.scss'
+    selector: 'lasr-input-form',
+    imports: [ReactiveFormsModule],
+    templateUrl: './input-form.component.html',
+    styleUrl: './input-form.component.scss'
 })
 export class InputFormComponent {
     axes = model.required<Risk[]>();

@@ -5,11 +5,10 @@ import { InputFormComponent } from './input-form/input-form.component';
 
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [WebComponent, InputFormComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    imports: [WebComponent, InputFormComponent],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent {
     risks5: Risk[] = [

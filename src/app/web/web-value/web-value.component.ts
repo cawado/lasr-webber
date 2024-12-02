@@ -5,10 +5,9 @@ import { DEFAULT_STYLE_OPTIONS } from '../web.default';
 
 
 @Component({
-  selector: 'lasr-web-value, g[webValue]',
-  standalone: true,
-  imports: [],
-  template: `
+    selector: 'lasr-web-value, g[webValue]',
+    imports: [],
+    template: `
     @for (point of webValue(); track $index) {
         <svg:circle [attr.cx]="point.x" [attr.cy]="point.y" [attr.r]="options().pointWidth" [attr.fill]="options().pointColor" />
     }
@@ -18,7 +17,7 @@ import { DEFAULT_STYLE_OPTIONS } from '../web.default';
         [attr.stroke-opacity]="options().lineOpacity"
         [attr.fill]="valueFillColor()" />
     `,
-  styles: []
+    styles: []
 })
 export class WebValueComponent {
     webValue = input<Point[]>([]);

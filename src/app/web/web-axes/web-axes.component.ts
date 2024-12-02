@@ -4,11 +4,10 @@ import { DEFAULT_AXIS_CONFIG_OPTIONS, DEFAULT_AXIS_STYLE_OPTIONS } from '../web.
 import { Axis, WebAxisConfig, WebAxisStyleType, WebInputType } from '../web.model';
 
 @Component({
-  selector: 'lasr-web-axes, g[webAxes]',
-  standalone: true,
-  imports: [],
-  templateUrl: './web-axes.component.html',
-  styleUrl: './web-axes.component.scss'
+    selector: 'lasr-web-axes, g[webAxes]',
+    imports: [],
+    templateUrl: './web-axes.component.html',
+    styleUrl: './web-axes.component.scss'
 })
 export class WebAxesComponent {
     styles = input<WebAxisStyleType, WebInputType<WebAxisStyleType>>(DEFAULT_AXIS_STYLE_OPTIONS,{transform:axisStyleOptionsTransform});

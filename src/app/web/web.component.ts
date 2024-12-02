@@ -8,11 +8,10 @@ import { Risk } from '../model';
 import { WebValueDifferenceComponent } from './web-value-differenz/web-value-difference.component';
 
 @Component({
-  selector: 'lasr-web',
-  standalone: true,
-  imports: [WebAxesComponent, WebValueComponent, WebValueDifferenceComponent],
-  templateUrl: './web.component.html',
-  styleUrl: './web.component.scss'
+    selector: 'lasr-web',
+    imports: [WebAxesComponent, WebValueComponent, WebValueDifferenceComponent],
+    templateUrl: './web.component.html',
+    styleUrl: './web.component.scss'
 })
 export class WebComponent {
 
