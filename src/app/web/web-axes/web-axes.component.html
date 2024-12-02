@@ -7,6 +7,9 @@
         [attr.stroke-width]="styles().axisWidth"
         [attr.stroke-opacity]="styles().axisOpacity"
         [attr.stroke]="styles().axisColor"/>
+    <svg:text text-anchor="middle" 
+        [attr.transform]="rotation(axis)"
+        [attr.x]="axis.endPoint.x" [attr.y]="axis.endPoint.y - 2" font-size="8">{{axis.label}}</svg:text>
 }
 </svg:g>
 <svg:g id="web-lines">

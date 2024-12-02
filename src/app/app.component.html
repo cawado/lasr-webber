@@ -1,4 +1,15 @@
-<div style="width: 100vw; height: 100vh; display: grid; grid-template-columns: repeat(3,1fr);">
-    <lasr-input-form [(axes)]="risks5" />
-    <lasr-web [axes]="risks5"/>
+<div class="lasr-app-wrapper">
+<mat-card appearance="outlined">
+    <mat-card-header>
+        <mat-card-title> LASR Netz</mat-card-title>
+        <mat-card-subtitle>Wie sehen unsere Risiken aus?</mat-card-subtitle>
+      </mat-card-header>
+    <mat-card-content class="lasr-app-content">
+        <lasr-web [axes]="risks5" class="lasr-app-web" [filled]="filled()"/>
+        <lasr-input-form [(axes)]="risks5" 
+            (filled)="filled.set($event)"/>
+    </mat-card-content>
+</mat-card>
 </div>
+
+

@@ -1,0 +1,15 @@
+.lasr-input {
+    &-form {
+        padding: 1rem;
+        th {
+            text-align: start;
+        }
+    }
+    &-result{
+        vertical-align: middle;
+        text-align: end;
+        padding-block-end: 1rem;
+        font-weight: bold;
+    }
+
+}

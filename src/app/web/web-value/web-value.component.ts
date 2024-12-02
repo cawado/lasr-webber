@@ -15,7 +15,8 @@ import { DEFAULT_STYLE_OPTIONS } from '../web.default';
         [attr.stroke-width]="options().lineWidth"
         [attr.stroke]="options().lineColor"
         [attr.stroke-opacity]="options().lineOpacity"
-        [attr.fill]="valueFillColor()" />
+        [attr.fill]="valueFillColor()"
+        [attr.fill-opacity]="valueFillOpacity()" />
     `,
     styles: []
 })
@@ -26,4 +27,5 @@ export class WebValueComponent {
     filled = input(false); 
 
     valueFillColor = computed(() => this.filled() ? this.options().lineColor : 'transparent');
+    valueFillOpacity = computed(() => this.filled() ? this.options().lineOpacity : 'transparent');
 }

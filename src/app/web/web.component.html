@@ -4,10 +4,12 @@
 
     <g id="web" [webAxes]="axes()" [styles]="styles().web" (degreePerAxisChange)="degreePerAxis.set($event)" />
 
-    <g id="expected-values" [options]="styles().expected"
+    <g id="expected-values" [options]="styles().expected" [filled]="filled().current"
         [webValue]="expectedValues().points" [valuePolygon]="expectedValues().polygon"/>
-    <g id="expected-values" [options]="styles().current"
+    <g id="expected-values" [options]="styles().current" [filled]="filled().expected"
         [webValue]="currentValues().points" [valuePolygon]="currentValues().polygon"/>
-    <g id="difference" [options]="styles().difference" [webDifferences]="difference()"/>
+    @if (filled().difference) {
+        <g id="difference" [options]="styles().difference" [webDifferences]="difference()"/>
+    }
 </svg>
 

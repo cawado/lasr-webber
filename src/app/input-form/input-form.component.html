@@ -1,21 +1,46 @@
-<form>
+
+<form class="lasr-input-form">
     <table>
         <thead>
             <tr>
                 <th>Risiko</th>
                 <th>Erwartete Erfüllung</th>
                 <th>Erzielte Erfüllung</th>
+                <th>Abweichung</th>
             </tr>
         </thead>
         <tbody>
         @for (risk of riskForms.controls; track $index) {
             <tr [formGroup]="risk">
-                <td><input type="text" formControlName="label"></td>
-                <td><input type="number" formControlName="expected"></td>
-                <td><input type="number" formControlName="current"></td>
+                <td>
+                    <mat-form-field>
+                        <input matInput type="text" formControlName="label">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field>
+                        <input matInput type="number" formControlName="expected">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field>
+                        <input matInput type="number" formControlName="current">
+                    </mat-form-field>
+                </td>
+                <td class="lasr-input-result">
+                    {{risk.value.expected - risk.value.current}}
+                </td>
             </tr>
         }
     </tbody>
+    <tfoot>
+        <tr [formGroup]="fillForm">
+            <th></th>
+            <td><mat-slide-toggle formControlName="expected">Highlight</mat-slide-toggle></td>
+            <td><mat-slide-toggle formControlName="current">Highlight</mat-slide-toggle></td>
+            <td><mat-slide-toggle formControlName="difference">Highlight</mat-slide-toggle></td>
+        </tr>
+    </tfoot>
     </table>
 
 </form>

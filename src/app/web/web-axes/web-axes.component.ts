@@ -38,11 +38,8 @@ export class WebAxesComponent {
     );
 
     constructor() {
-        effect(() => {
-            this.degreePerAxis.set(360 / this.axes().length);
-            untracked(() => {
-            console.log("Setting",this.axes().length, this.degreePerAxis());
-        })
-        },{allowSignalWrites: true})
+        effect(() => this.degreePerAxis.set(360 / this.axes().length))
     }
+
+    rotation = (axis: Axis) => `rotate(${(axis.endPoint?.rotation || 0) - this.options().startDegree}, ${axis.endPoint?.x}, ${axis.endPoint?.y})`;
 }

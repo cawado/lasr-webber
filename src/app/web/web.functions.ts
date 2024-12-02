@@ -27,6 +27,7 @@ export function pointOnCycle(angle: number, center: Point, radius: number):Point
     const radian = angle * (Math.PI / 180);
     return {
         x: center.x + radius * Math.cos(radian),
-        y: center.y + radius * Math.sin(radian)
+        y: center.y + radius * Math.sin(radian),
+        rotation: angle
     }
 }

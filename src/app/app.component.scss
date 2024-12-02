@@ -1,0 +1,18 @@
+.lasr-app {
+    &-wrapper {
+        display: flex;
+        width: 100vw;
+        justify-content: center;
+    }
+    &-content {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+    }
+    &-web {
+        display: block;
+        min-height: 75vh;
+        min-width: 75vh;
+    }
+}

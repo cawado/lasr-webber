@@ -20,7 +20,7 @@ export class WebComponent {
     axes = input.required<Risk[]>(); 
     startDegree = input(270); 
     max = input(100); 
-    numberOfWebLines = input(4); 
+    numberOfWebLines = input(5); 
     styles = input<AllStyleOptionInputType>({
         web:     { color: 'currentColor'},
         current: { color: 'blue'},
@@ -29,7 +29,9 @@ export class WebComponent {
     });
 
     steps = computed(() => Array.from({length: this.numberOfWebLines()}).map((_,index) => (this.max() / this.numberOfWebLines() * (index +1)))); 
+
     degreePerAxis = signal(360); 
+    filled = input<any>({});
 
     currentValues = computed(() => {
         const dpa = this.degreePerAxis(); 

@@ -17,6 +17,11 @@ export type AllStyleOptionInputType = {
     [K in keyof AllStyleOptionType]: WebInputType<AllStyleOptionType[K]>;
 };
 
+export type WebHighlights = {
+    current: boolean, 
+    expected: boolean,
+    difference: boolean
+}
 export type WebAxisConfig = {
     center:Point,
     startDegree:number,
@@ -28,12 +33,13 @@ export type WebAxisConfig = {
 export interface Axis {
     active: boolean; 
     label: string;
-    endPoint?: Point; 
+    endPoint?: Point 
 }
 
 export interface Point {
     x: number; 
     y:number; 
+    rotation ?: number;
 }
 export type Line = {
     start: Point; 
