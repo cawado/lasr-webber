@@ -1,0 +1,21 @@
+<form>
+    <table>
+        <thead>
+            <tr>
+                <th>Risiko</th>
+                <th>Erwartete Erfüllung</th>
+                <th>Erzielte Erfüllung</th>
+            </tr>
+        </thead>
+        <tbody>
+        @for (risk of riskForms.controls; track $index) {
+            <tr [formGroup]="risk">
+                <td><input type="text" formControlName="label"></td>
+                <td><input type="number" formControlName="expected"></td>
+                <td><input type="number" formControlName="current"></td>
+            </tr>
+        }
+    </tbody>
+    </table>
+
+</form>

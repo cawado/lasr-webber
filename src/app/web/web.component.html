@@ -1,0 +1,13 @@
+<svg xmlns=" http://www.w3.org/2000/svg" 
+    xmlns:xhtml="http://www.w3.org/1999/xhtml" 
+    version="1.1" viewBox="0 0 220 220" width="100%" height="100%">
+
+    <g id="web" [webAxes]="axes()" [styles]="styles().web" (degreePerAxisChange)="degreePerAxis.set($event)" />
+
+    <g id="expected-values" [options]="styles().expected"
+        [webValue]="expectedValues().points" [valuePolygon]="expectedValues().polygon"/>
+    <g id="expected-values" [options]="styles().current"
+        [webValue]="currentValues().points" [valuePolygon]="currentValues().polygon"/>
+    <g id="difference" [options]="styles().difference" [webDifferences]="difference()"/>
+</svg>
+

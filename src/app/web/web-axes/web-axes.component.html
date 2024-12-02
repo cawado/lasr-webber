@@ -1,0 +1,20 @@
+<svg:circle [attr.cx]="options().center.x" [attr.cy]="options().center.y" r="5" 
+[attr.fill]="styles().axisColor" />
+<svg:g id="web-axis">
+@for (axis of webAxes(); track $index) {
+    <svg:line [attr.x1]="options().center.x" [attr.y1]="options().center.y" 
+        [attr.x2]="axis.endPoint.x" [attr.y2]="axis.endPoint.y" 
+        [attr.stroke-width]="styles().axisWidth"
+        [attr.stroke-opacity]="styles().axisOpacity"
+        [attr.stroke]="styles().axisColor"/>
+}
+</svg:g>
+<svg:g id="web-lines">
+@for (line of webLines(); track $index) {
+    <svg:polygon [attr.points]="line"
+        [attr.stroke]="styles().lineColor"
+        [attr.stroke-width]="styles().lineWidth"
+        [attr.stroke-opacity]="styles().lineOpacity"
+        fill="transparent" />
+}
+</svg:g>
