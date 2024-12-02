@@ -1,19 +1,19 @@
 import { Component, computed, input, signal } from '@angular/core';
 import { WebAxesComponent } from './web-axes/web-axes.component';
 import { WebValueComponent } from './web-value/web-value.component';
-import { pointOnCycle } from './web.functions';
-import { AllStyleOptionInputType, Point } from './web.model';
-import { DEFAULT_AXIS_CONFIG_OPTIONS } from './web.default';
-import { Risk } from '../model';
+import { AllStyleOptionInputType, Point } from './web-chart.model';
+import { Risk } from '../../../../src/app/model';
 import { WebValueDifferenceComponent } from './web-value-differenz/web-value-difference.component';
+import { DEFAULT_AXIS_CONFIG_OPTIONS } from './web-chart.default';
+import { pointOnCycle } from './web-chart.functions';
 
 @Component({
-    selector: 'lasr-web',
+    selector: 'cawado-web-chart',
     imports: [WebAxesComponent, WebValueComponent, WebValueDifferenceComponent],
-    templateUrl: './web.component.html',
-    styleUrl: './web.component.scss'
+    templateUrl: './web-chart.component.html',
+    styleUrl: './web-chart.component.scss'
 })
-export class WebComponent {
+export class WebChartComponent {
 
     readonly center: Point = DEFAULT_AXIS_CONFIG_OPTIONS.center; 
 

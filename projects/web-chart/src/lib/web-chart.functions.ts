@@ -1,5 +1,5 @@
-import { DEFAULT_AXIS_STYLE_OPTIONS, DEFAULT_STYLE_OPTIONS } from "./web.default";
-import { Point, WebAxisStyleType, WebInputType, WebValueStyleType } from "./web.model";
+import { DEFAULT_AXIS_STYLE_OPTIONS, DEFAULT_STYLE_OPTIONS } from "./web-chart.default";
+import { Point, WebAxisStyleType, WebInputType, WebValueStyleType } from "./web-chart.model";
 
 export function optionsTransform<T>(fullValue:T) {
     return (parts: Partial<T>):T => ({

@@ -1,14 +1,14 @@
 import { Component, input, signal } from '@angular/core';
 import { Risk } from './model';
-import { WebComponent } from './web/web.component';
+import { WebChartComponent } from '../../projects/web-chart/src/lib/web-chart.component';
 import { InputFormComponent } from './input-form/input-form.component';
-import { MatCard, MatCardContent, MatCardModule } from '@angular/material/card';
-import { WebHighlights } from './web/web.model';
+import { MatCardModule } from '@angular/material/card';
+import { WebHighlights } from '../../projects/web-chart/src/lib/web-chart.model';
 
 
 @Component({
     selector: 'app-root',
-    imports: [WebComponent, InputFormComponent, MatCardModule],
+    imports: [WebChartComponent, InputFormComponent, MatCardModule],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })

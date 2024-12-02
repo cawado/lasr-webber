@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WebComponent } from './web.component';
+import { WebChartComponent } from './web-chart.component';
 
 describe('WebComponent', () => {
-  let component: WebComponent;
-  let fixture: ComponentFixture<WebComponent>;
+  let component: WebChartComponent;
+  let fixture: ComponentFixture<WebChartComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WebComponent]
+      imports: [WebChartComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(WebComponent);
+    fixture = TestBed.createComponent(WebChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

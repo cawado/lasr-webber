@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
-import { DEFAULT_STYLE_OPTIONS } from '../web.default';
-import { optionsStyleTransform } from '../web.functions';
-import { Line } from '../web.model';
+import { DEFAULT_STYLE_OPTIONS } from '../web-chart.default';
+import { optionsStyleTransform } from '../web-chart.functions';
+import { Line } from '../web-chart.model';
 
 @Component({
     selector: 'lasr-web-value-difference, g[webDifferences]',

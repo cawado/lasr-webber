@@ -1,4 +1,4 @@
-import { WebAxisStyleType, WebValueStyleType } from "./web.model"
+import { WebAxisStyleType, WebValueStyleType } from "./web-chart.model"
 
 export const DEFAULT_AXIS_CONFIG_OPTIONS = {
     center:{x: 110,y: 110},

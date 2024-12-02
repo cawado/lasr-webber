@@ -1,7 +1,7 @@
 import { Component, computed, effect, input, model, untracked, } from '@angular/core';
-import { axisStyleOptionsTransform, optionsTransform, pointOnCycle } from '../web.functions';
-import { DEFAULT_AXIS_CONFIG_OPTIONS, DEFAULT_AXIS_STYLE_OPTIONS } from '../web.default';
-import { Axis, WebAxisConfig, WebAxisStyleType, WebInputType } from '../web.model';
+import { DEFAULT_AXIS_CONFIG_OPTIONS, DEFAULT_AXIS_STYLE_OPTIONS } from '../web-chart.default';
+import { Axis, WebAxisConfig, WebAxisStyleType, WebInputType } from '../web-chart.model';
+import { axisStyleOptionsTransform, optionsTransform, pointOnCycle } from '../web-chart.functions';
 
 @Component({
     selector: 'lasr-web-axes, g[webAxes]',

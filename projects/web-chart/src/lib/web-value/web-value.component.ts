@@ -1,7 +1,7 @@
 import { Component, computed, input } from '@angular/core';
-import { optionsStyleTransform } from '../web.functions';
-import { Point } from '../web.model';
-import { DEFAULT_STYLE_OPTIONS } from '../web.default';
+import { Point } from '../web-chart.model';
+import { DEFAULT_STYLE_OPTIONS } from '../web-chart.default';
+import { optionsStyleTransform } from '../web-chart.functions';
 
 
 @Component({
