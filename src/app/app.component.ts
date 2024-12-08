@@ -4,11 +4,12 @@ import { WebChartComponent } from '../../projects/web-chart/src/lib/web-chart.co
 import { InputFormComponent } from './input-form/input-form.component';
 import { MatCardModule } from '@angular/material/card';
 import { WebHighlights } from '../../projects/web-chart/src/lib/web-chart.model';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
     selector: 'app-root',
-    imports: [WebChartComponent, InputFormComponent, MatCardModule],
+    imports: [WebChartComponent, InputFormComponent, MatCardModule, MatButtonModule],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })
