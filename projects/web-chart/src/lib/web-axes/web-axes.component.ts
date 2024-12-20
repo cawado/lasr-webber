@@ -1,7 +1,7 @@
-import { Component, computed, effect, input, model, untracked, } from '@angular/core';
+import { Component, computed, effect, input, model } from '@angular/core';
 import { DEFAULT_AXIS_CONFIG_OPTIONS, DEFAULT_AXIS_STYLE_OPTIONS } from '../web-chart.default';
-import { Axis, WebAxisConfig, WebAxisStyleType, WebInputType } from '../web-chart.model';
 import { axisStyleOptionsTransform, optionsTransform, pointOnCycle } from '../web-chart.functions';
+import { Axis, Point, WebAxisConfig, WebAxisStyleType, WebInputType } from '../web-chart.model';
 
 @Component({
     selector: 'lasr-web-axes, g[webAxes]',
@@ -16,7 +16,7 @@ export class WebAxesComponent {
     axes = input.required<Axis[]>({alias: 'webAxes'}); 
     degreePerAxis = model<number>(360); 
 
-    webAxes = computed<Required<Axis>[]>(() => {
+    webAxes = computed<(Axis & {endPoint: Point})[]>(() => {
         const dpa = this.degreePerAxis(); 
         return this.axes().map((axis, axisIndex) => ({
         ...axis, 

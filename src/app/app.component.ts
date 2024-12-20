@@ -1,11 +1,10 @@
-import { Component, input, signal } from '@angular/core';
-import { Risk } from './model';
-import { WebChartComponent } from '../../projects/web-chart/src/lib/web-chart.component';
-import { InputFormComponent } from './input-form/input-form.component';
-import { MatCardModule } from '@angular/material/card';
-import { WebHighlights } from '../../projects/web-chart/src/lib/web-chart.model';
+import { Component, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatCardModule } from '@angular/material/card';
+import { WebChartComponent } from '../../projects/web-chart/src/lib/web-chart.component';
+import { WebHighlights } from '../../projects/web-chart/src/lib/web-chart.model';
+import { InputFormComponent } from './input-form/input-form.component';
+import { QUALITY_GOALS, Risk } from './model';
 
 @Component({
     selector: 'app-root',
@@ -22,10 +21,17 @@ export class AppComponent {
     });
 
     risks5: Risk[] = [
-        {label: 'Risiko 1',expected: 80, current: 52, active: true}, 
-        {label: 'Risiko 2',expected: 75, current: 70, active: true}, 
-        {label: 'Risiko 3',expected: 65, current: 25, active: true}, 
-        {label: 'Risiko 4',expected: 30, current: 30, active: true}, 
-        {label: 'Risiko 5',expected: 50, current: 45, active: true}, 
+        {label: QUALITY_GOALS[0],goal: randomPercent({min: 50}), lasrPoints: randomPercent({max: 50}), active: true}, 
+        {label: QUALITY_GOALS[1],goal: randomPercent({min: 50}), lasrPoints: randomPercent({max: 50}), active: true}, 
+        {label: QUALITY_GOALS[2],goal: randomPercent({min: 50}), lasrPoints: randomPercent({max: 50}), active: true}, 
+        {label: QUALITY_GOALS[3],goal: randomPercent({min: 50}), lasrPoints: randomPercent({max: 50}), active: true}, 
+        {label: QUALITY_GOALS[4],goal: randomPercent({min: 50}), lasrPoints: randomPercent({max: 50}), active: true}, 
       ];
 }
+type RandomInput = {min: number, max: number}; 
+function randomPercent(input: Partial<RandomInput> = {}){  
+    const {max,min}: RandomInput = {...{min: 0, max: 100}, ...input}; 
+    return Math.ceil(
+        Math.random() * (max - min) + min
+    );  
+} 

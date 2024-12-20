@@ -1,11 +1,10 @@
 import { Component, computed, input, signal } from '@angular/core';
 import { WebAxesComponent } from './web-axes/web-axes.component';
-import { WebValueComponent } from './web-value/web-value.component';
-import { AllStyleOptionInputType, Point } from './web-chart.model';
-import { Risk } from '../../../../src/app/model';
-import { WebValueDifferenceComponent } from './web-value-differenz/web-value-difference.component';
 import { DEFAULT_AXIS_CONFIG_OPTIONS } from './web-chart.default';
 import { pointOnCycle } from './web-chart.functions';
+import { AllStyleOptionInputType, Axis, Point } from './web-chart.model';
+import { WebValueDifferenceComponent } from './web-value-differenz/web-value-difference.component';
+import { WebValueComponent } from './web-value/web-value.component';
 
 @Component({
     selector: 'cawado-web-chart',
@@ -17,7 +16,7 @@ export class WebChartComponent {
 
     readonly center: Point = DEFAULT_AXIS_CONFIG_OPTIONS.center; 
 
-    axes = input.required<Risk[]>(); 
+    axes = input.required<Axis[]>(); 
     startDegree = input(270); 
     max = input(100); 
     numberOfWebLines = input(5); 
@@ -37,7 +36,7 @@ export class WebChartComponent {
         const dpa = this.degreePerAxis(); 
         const points = this.axes().map((axis, axisIndex) => pointOnCycle(
                 this.startDegree() + (dpa * axisIndex),
-                this.center, axis.current
+                this.center, axis.current ?? 0
         )); 
         const polygon = points
             .map(p => `${p.x},${p.y}`)
@@ -49,7 +48,7 @@ export class WebChartComponent {
         const dpa = this.degreePerAxis(); 
         const points = this.axes().map((axis, axisIndex) => pointOnCycle(
                 this.startDegree() + (dpa * axisIndex),
-                this.center, axis.expected
+                this.center, axis.expected ?? 0
         )); 
         const polygon = points
             .map(p => `${p.x},${p.y}`)

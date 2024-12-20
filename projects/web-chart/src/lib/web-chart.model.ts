@@ -34,6 +34,8 @@ export interface Axis {
     active: boolean; 
     label: string;
     endPoint?: Point 
+    expected ?: number;
+    current ?: number;
 }
 
 export interface Point {
