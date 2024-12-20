@@ -22,18 +22,19 @@
                     </mat-select>
                     </mat-form-field>
                 </td>
-                <td>
+                <td class="lasr-input-field">
                     <mat-form-field>
                         <input matInput type="number" formControlName="goal">
+                        <div matTextSuffix> % </div>
                     </mat-form-field>
                 </td>
-                <td>
+                <td class="lasr-input-field">
                     <mat-form-field>
                         <input matInput type="number" formControlName="lasrPoints">
                     </mat-form-field>
                 </td>
                 <td class="lasr-input-result">
-                    {{risk.value.expected - risk.value.current}}
+                    {{calcDiff(risk.value)}} %
                 </td>
             </tr>
         }

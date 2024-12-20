@@ -2,15 +2,15 @@
 <mat-card appearance="outlined">
     <mat-card-header>
         <mat-card-title> LASR Netz</mat-card-title>
-        <mat-card-subtitle>Wie sehen unsere Risiken aus?</mat-card-subtitle>
+        <mat-card-subtitle>Wie gut erfüllen wir unsere Qualitätsziele?</mat-card-subtitle>
       </mat-card-header>
     <mat-card-content class="lasr-app-content">
-        <cawado-web-chart [axes]="risks5" class="lasr-app-web" [filled]="filled()"/>
+        <cawado-web-chart [axes]="webAxes()" class="lasr-app-web" [filled]="filled()"/>
         <lasr-input-form [(axes)]="risks5" 
             (filled)="filled.set($event)"/>
     </mat-card-content>
     <mat-card-actions align="end"> 
-        Feel free to contribute at <a mat-button href="https://github.com/cawado/lasr-webber">cawado &#64; GitHub</a>
+        Feel free to contribute at <a mat-button href="https://github.com/cawado/lasr-webber" target="_blank">cawado &#64; GitHub</a>
     </mat-card-actions>
 </mat-card>
 </div>

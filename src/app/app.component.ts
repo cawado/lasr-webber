@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { WebChartComponent } from '../../projects/web-chart/src/lib/web-chart.component';
@@ -20,13 +20,14 @@ export class AppComponent {
         difference: true
     });
 
-    risks5: Risk[] = [
+    risks5 = signal<Risk[]>([
         {label: QUALITY_GOALS[0],goal: randomPercent({min: 50}), lasrPoints: randomPercent({max: 50}), active: true}, 
         {label: QUALITY_GOALS[1],goal: randomPercent({min: 50}), lasrPoints: randomPercent({max: 50}), active: true}, 
         {label: QUALITY_GOALS[2],goal: randomPercent({min: 50}), lasrPoints: randomPercent({max: 50}), active: true}, 
         {label: QUALITY_GOALS[3],goal: randomPercent({min: 50}), lasrPoints: randomPercent({max: 50}), active: true}, 
         {label: QUALITY_GOALS[4],goal: randomPercent({min: 50}), lasrPoints: randomPercent({max: 50}), active: true}, 
-      ];
+      ]);
+    webAxes = computed(() => riskTransform(this.risks5()));
 }
 type RandomInput = {min: number, max: number}; 
 function randomPercent(input: Partial<RandomInput> = {}){  
@@ -34,4 +35,12 @@ function randomPercent(input: Partial<RandomInput> = {}){
     return Math.ceil(
         Math.random() * (max - min) + min
     );  
+} 
+
+export function riskTransform(risks: Risk[]): Required<Omit<Risk,'color' | 'endPoint'>>[] {
+    return risks.map(risk =>({
+        ...risk,
+        expected: risk.goal,
+        current: risk.goal - risk.lasrPoints * (risk.goal / 100)
+    }))
 } 

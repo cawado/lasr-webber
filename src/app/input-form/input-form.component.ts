@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
+import { riskTransform } from '../app.component';
 import { QUALITY_GOALS, Risk, RiskForm } from '../model';
 
 @Component({
@@ -41,6 +42,11 @@ export class InputFormComponent {
         })
 
         this.fillForm.valueChanges.pipe(takeUntilDestroyed()).subscribe(values => this.filled.emit({...this.fillForm.getRawValue() ,...values}))
+    }
+
+    calcDiff(risk: Risk) {
+        const {expected, current} = riskTransform([risk])[0]; 
+        return Math.ceil(expected - current);
     }
 }
 
