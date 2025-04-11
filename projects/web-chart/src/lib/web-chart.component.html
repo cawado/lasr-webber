@@ -4,9 +4,9 @@
 
     <g id="web" [webAxes]="axes()" [styles]="styles().web" (degreePerAxisChange)="degreePerAxis.set($event)" />
 
-    <g id="expected-values" [options]="styles().expected" [filled]="filled().current"
+    <g id="expected-values" [options]="styles().expected" [filled]="filled().expected"
         [webValue]="expectedValues().points" [valuePolygon]="expectedValues().polygon"/>
-    <g id="expected-values" [options]="styles().current" [filled]="filled().expected"
+    <g id="expected-values" [options]="styles().current" [filled]="filled().current"
         [webValue]="currentValues().points" [valuePolygon]="currentValues().polygon"/>
     @if (filled().difference) {
         <g id="difference" [options]="styles().difference" [webDifferences]="difference()"/>
