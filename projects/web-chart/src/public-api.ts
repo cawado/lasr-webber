@@ -1,5 +1,5 @@
 /*
- * Public API Surface of web-chart
+ * Public API Surface of @cawado/web-chart
  */
 
 export * from './lib/web-chart.model';

@@ -24,7 +24,7 @@
       "dom"
     ],
     "paths": {
-      "web-chart": [
+      "@cawado/web-chart": [
         "./dist/web-chart"
       ]
     }

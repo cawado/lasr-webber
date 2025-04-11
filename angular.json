@@ -100,7 +100,7 @@
         }
       }
     },
-    "web-chart": {
+    "@cawado/web-chart": {
       "projectType": "library",
       "root": "projects/web-chart",
       "sourceRoot": "projects/web-chart/src",

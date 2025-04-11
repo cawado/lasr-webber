@@ -1,8 +1,7 @@
 import { Component, computed, input, signal } from '@angular/core';
 import { WebAxesComponent } from './web-axes/web-axes.component';
 import { WebValueComponent } from './web-value/web-value.component';
-import { AllStyleOptionInputType, Point } from './web-chart.model';
-import { Risk } from '../../../../src/app/model';
+import { AllStyleOptionInputType, Point, ValuedAxis } from './web-chart.model';
 import { WebValueDifferenceComponent } from './web-value-differenz/web-value-difference.component';
 import { DEFAULT_AXIS_CONFIG_OPTIONS } from './web-chart.default';
 import { pointOnCycle } from './web-chart.functions';
@@ -17,7 +16,7 @@ export class WebChartComponent {
 
     readonly center: Point = DEFAULT_AXIS_CONFIG_OPTIONS.center; 
 
-    axes = input.required<Risk[]>(); 
+    axes = input.required<ValuedAxis[]>(); 
     startDegree = input(270); 
     max = input(100); 
     numberOfWebLines = input(5); 

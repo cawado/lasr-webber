@@ -1,12 +1,12 @@
 import { Component, effect, model, output } from '@angular/core';
 import { FormArray, FormControl, FormGroup, FormRecord, ReactiveFormsModule } from '@angular/forms';
-import { Risk } from '../model';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { debounce, debounceTime, distinctUntilChanged, take } from 'rxjs';
 import { MatInput, MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ValuedAxis } from '@cawado/web-chart';
 
 @Component({
     selector: 'lasr-input-form',
@@ -15,7 +15,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     styleUrl: './input-form.component.scss'
 })
 export class InputFormComponent {
-    axes = model.required<Risk[]>();
+    axes = model.required<ValuedAxis[]>();
     filled = output<{current: boolean, expected: boolean, difference: boolean}>();
 
     riskForms = new FormArray<FormGroup>([]); 
@@ -41,7 +41,7 @@ export class InputFormComponent {
     }
 }
 
-const buildRiskForm = (risk: Risk): FormGroup => new FormGroup({
+const buildRiskForm = (risk: ValuedAxis): FormGroup => new FormGroup({
     label: new FormControl(risk.label),
     expected: new FormControl(risk.expected),
     current: new FormControl(risk.current),

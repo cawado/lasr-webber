@@ -36,6 +36,12 @@ export interface Axis {
     endPoint?: Point 
 }
 
+export interface ValuedAxis extends Axis {
+    expected: number,
+    current: number,
+    color?: string; 
+}
+
 export interface Point {
     x: number; 
     y:number; 

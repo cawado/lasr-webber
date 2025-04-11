@@ -1,9 +1,9 @@
 import { Component, input, signal } from '@angular/core';
-import { Risk } from './model';
 import { WebChartComponent } from '../../projects/web-chart/src/lib/web-chart.component';
 import { InputFormComponent } from './input-form/input-form.component';
 import { MatCardModule } from '@angular/material/card';
 import { WebHighlights } from '../../projects/web-chart/src/lib/web-chart.model';
+import { ValuedAxis } from '@cawado/web-chart';
 
 
 @Component({
@@ -20,7 +20,7 @@ export class AppComponent {
         difference: true
     });
 
-    risks5: Risk[] = [
+    risks5: ValuedAxis[] = [
         {label: 'Risiko 1',expected: 80, current: 52, active: true}, 
         {label: 'Risiko 2',expected: 75, current: 70, active: true}, 
         {label: 'Risiko 3',expected: 65, current: 25, active: true}, 

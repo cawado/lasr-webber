@@ -1,6 +1,33 @@
 {
-  "name": "web-chart",
-  "version": "0.0.1",
+  "name": "@cawado/web-chart",
+  "version": "0.1.0",
+  "description": "a lib to create dynamic web charts",
+  "author": {
+    "name": "Raimund S. Utz",
+    "email": "raimund.utz@cawado.de",
+    "url": "https://www.cawado.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cawado/lasr-webber.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cawado/lasr-webber/issues"
+  },
+  "homepage": "https://github.com/cawado/lasr-webber",
+  "keywords": [
+    "angular",
+    "javascript",
+    "typescript",
+    "chart",
+    "webchart",
+    "web-chart",
+    "dynamic"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "@angular/common": "^19.0.0",
     "@angular/core": "^19.0.0"
