@@ -3,9 +3,9 @@
     <table>
         <thead>
             <tr>
-                <th>Risiko</th>
-                <th>Erwartete Erfüllung</th>
-                <th>Erzielte Erfüllung</th>
+                <th>Qualitätsziel</th>
+                <th>Zielwert</th>
+                <th>LASR-Punkte</th>
                 <th>Abweichung</th>
             </tr>
         </thead>
@@ -14,21 +14,27 @@
             <tr [formGroup]="risk">
                 <td>
                     <mat-form-field>
-                        <input matInput type="text" formControlName="label">
+
+                    <mat-select formControlName="label">
+                        @for (goal of goals; track goal) {
+                            <mat-option [value]="goal"> {{goal}}</mat-option>
+                        }
+                    </mat-select>
                     </mat-form-field>
                 </td>
-                <td>
+                <td class="lasr-input-field">
                     <mat-form-field>
-                        <input matInput type="number" formControlName="expected">
+                        <input matInput type="number" formControlName="goal">
+                        <div matTextSuffix> % </div>
                     </mat-form-field>
                 </td>
-                <td>
+                <td class="lasr-input-field">
                     <mat-form-field>
-                        <input matInput type="number" formControlName="current">
+                        <input matInput type="number" formControlName="lasrPoints">
                     </mat-form-field>
                 </td>
                 <td class="lasr-input-result">
-                    {{risk.value.expected - risk.value.current}}
+                    {{calcDiff(risk.value)}} %
                 </td>
             </tr>
         }

@@ -1,22 +1,26 @@
 import { Component, effect, model, output } from '@angular/core';
-import { FormArray, FormControl, FormGroup, FormRecord, ReactiveFormsModule } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { debounce, debounceTime, distinctUntilChanged, take } from 'rxjs';
-import { MatInput, MatInputModule } from '@angular/material/input';
+import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSliderModule } from '@angular/material/slider';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { ValuedAxis } from '@cawado/web-chart';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
+import { riskTransform } from '../app.component';
+import { QUALITY_GOALS, Risk, RiskForm } from '../model';
 
 @Component({
     selector: 'lasr-input-form',
-    imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSlideToggleModule],
+    imports: [ReactiveFormsModule, MatFormFieldModule, 
+        MatInputModule, MatSlideToggleModule, MatSelectModule],
     templateUrl: './input-form.component.html',
     styleUrl: './input-form.component.scss'
 })
 export class InputFormComponent {
-    axes = model.required<ValuedAxis[]>();
+    axes = model.required<Risk[]>();
     filled = output<{current: boolean, expected: boolean, difference: boolean}>();
+
+    get goals() { return QUALITY_GOALS;} 
 
     riskForms = new FormArray<FormGroup>([]); 
     fillForm = new FormGroup({
@@ -39,10 +43,16 @@ export class InputFormComponent {
 
         this.fillForm.valueChanges.pipe(takeUntilDestroyed()).subscribe(values => this.filled.emit({...this.fillForm.getRawValue() ,...values}))
     }
+
+    calcDiff(risk: Risk) {
+        const {expected, current} = riskTransform([risk])[0]; 
+        return Math.ceil(expected - current);
+    }
 }
 
-const buildRiskForm = (risk: ValuedAxis): FormGroup => new FormGroup({
-    label: new FormControl(risk.label),
-    expected: new FormControl(risk.expected),
-    current: new FormControl(risk.current),
+const buildRiskForm = (risk: Risk): FormGroup => new FormGroup<RiskForm>({
+    label: new FormControl(risk.label,{nonNullable: true}),
+    goal: new FormControl(risk.goal,{nonNullable: true}),
+    lasrPoints: new FormControl(risk.lasrPoints,{nonNullable: true}),
+    active: new FormControl(risk.active,{nonNullable: true}),
 })
